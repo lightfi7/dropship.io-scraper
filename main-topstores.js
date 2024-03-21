@@ -6,8 +6,8 @@ const fernet = require("fernet");
 const secret = new fernet.Secret("uV7HJdHDlqqJN6Fuyl8ulILoGSeccbyCpr6h3wBerpw");
 
 const config = {
-  email: "morrispatterson697545@gmail.com",
-  password: "Luongthukhanhlong789788900",
+  email: "maxbudge6472@gmail.com",
+  password: "Sertu$12",
 };
 
 const mongoose = require("mongoose");
