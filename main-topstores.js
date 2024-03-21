@@ -147,7 +147,6 @@ const submitStatus = async (finish) => {
 const main = async () => {
   const browser = await puppeteer.launch({
     args: ["--no-sandbox"],
-    headless: false,
   });
 
   const page = await browser.newPage();
