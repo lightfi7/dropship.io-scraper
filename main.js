@@ -331,12 +331,12 @@ const main = async () => {
       }
 
       await Chart.insertMany(charts);
+      if (p * 250 >= r.total - 1 || p * 250 > 10000) {
+        break;
+      }
       console.log(p);
     } catch (err) {
       console.log(err);
-    }
-    if (p * 250 >= 100 || p * 250 > 10000) {
-      break;
     }
   }
   await browser.close();

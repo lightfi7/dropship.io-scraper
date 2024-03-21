@@ -147,6 +147,7 @@ const submitStatus = async (finish) => {
 const main = async () => {
   const browser = await puppeteer.launch({
     args: ["--no-sandbox"],
+    headless: false,
   });
 
   const page = await browser.newPage();
@@ -301,15 +302,15 @@ const main = async () => {
       }
 
       console.log(p);
+      if (p * 50 >= r.total - 1 || p * 50 > 10000) break;
     } catch (err) {
       console.log(err);
     }
-    if (p * 50 >= r.total - 1 || p * 50 > 10000) break;
   }
 
   await browser.close();
 };
-
+main();
 cron.schedule("0 8 * * *", async () => {
   await submitStatus(false);
   try {
