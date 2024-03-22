@@ -309,7 +309,7 @@ const main = async () => {
 
   await browser.close();
 };
-main();
+
 cron.schedule("0 8 * * *", async () => {
   await submitStatus(false);
   try {
