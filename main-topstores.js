@@ -317,3 +317,4 @@ cron.schedule("0 8 * * *", async () => {
   } catch (err) {}
   await submitStatus(true);
 });
+main()

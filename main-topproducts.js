@@ -266,3 +266,4 @@ cron.schedule("0 16 * * *", async () => {
   } catch (err) {}
   await submitStatus(true);
 });
+main()
