@@ -6,8 +6,8 @@ const fernet = require("fernet");
 const secret = new fernet.Secret("uV7HJdHDlqqJN6Fuyl8ulILoGSeccbyCpr6h3wBerpw");
 
 const config = {
-  email: "morrispatterson697545@gmail.com",
-  password: "Luongthukhanhlong789788900",
+  email: "chaskaspay@gmail.com",
+  password: "Sertu$12",
 };
 
 const mongoose = require("mongoose");
@@ -143,6 +143,7 @@ const submitStatus = async (finish) => {
 const main = async () => {
   const browser = await puppeteer.launch({
     args: ["--no-sandbox"],
+    // headless: false,
   });
 
   const page = await browser.newPage();
@@ -349,4 +350,4 @@ cron.schedule("0 0 * * *", async () => {
   } catch (err) {}
   await submitStatus(true);
 });
-main()
+main();
