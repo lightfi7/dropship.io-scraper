@@ -142,8 +142,8 @@ const submitStatus = async (finish) => {
 
 const main = async () => {
   const browser = await puppeteer.launch({
-    args: ["--no-sandbox"],
     // headless: false,
+    args: ["--no-sandbox"],
   });
 
   const page = await browser.newPage();
@@ -183,17 +183,6 @@ const main = async () => {
   await page.goto("https://app.dropship.io/product-database", {
     timeout: 300000,
   });
-
-  const refresh = async (page) => {
-    setTimeout(async () => {
-      await page.goto("https://app.dropship.io/product-database", {
-        timeout: 300000,
-      });
-      refresh(page);
-    }, 1000 * 60 * 60 * 1);
-  };
-
-  refresh(page);
 
   await page.screenshot({ path: "screenshot.png" });
 
@@ -338,7 +327,11 @@ const main = async () => {
       console.log(p);
     } catch (err) {
       console.log(err);
+      break;
     }
+
+    await page.reload();
+  
   }
   await browser.close();
 };

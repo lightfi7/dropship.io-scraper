@@ -251,13 +251,14 @@ const main = async () => {
       if (p * 250 >= r.total - 1 || p * 250 > 10000) break;
     } catch (err) {
       console.log(err);
+      break;
     }
+    await page.reload();
   }
   await browser.close();
 };
 
 submitStatus(false);
-
 
 cron.schedule("0 16 * * *", async () => {
   await submitStatus(false);
@@ -266,4 +267,4 @@ cron.schedule("0 16 * * *", async () => {
   } catch (err) {}
   await submitStatus(true);
 });
-main()
+main();

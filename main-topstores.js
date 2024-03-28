@@ -304,7 +304,10 @@ const main = async () => {
       if (p * 50 >= r.total - 1 || p * 50 > 10000) break;
     } catch (err) {
       console.log(err);
+      break;
     }
+
+    await page.reload();
   }
 
   await browser.close();
@@ -317,4 +320,4 @@ cron.schedule("0 8 * * *", async () => {
   } catch (err) {}
   await submitStatus(true);
 });
-main()
+main();
