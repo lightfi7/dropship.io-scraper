@@ -191,7 +191,7 @@ const main = async () => {
 
   const params = {
     page: 1,
-    page_size: 250,
+    page_size: 50,
     ordering: [null],
     new_search: true,
     filters: {
@@ -321,7 +321,7 @@ const main = async () => {
       }
 
       await Chart.insertMany(charts);
-      if (p * 250 >= r.total - 1 || p * 250 > 10000) {
+      if (p * 50 >= r.total - 1 || p * 50 > 10000) {
         break;
       }
       console.log(p);
