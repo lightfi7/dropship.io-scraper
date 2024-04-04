@@ -253,7 +253,7 @@ const main = async () => {
       console.log(err);
       break;
     }
-    await page.reload();
+    if (p % 10 === 10) await page.reload();
   }
   await browser.close();
 };

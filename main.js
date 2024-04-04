@@ -330,8 +330,7 @@ const main = async () => {
       break;
     }
 
-    await page.reload();
-  
+    if (p % 10 == 0) await page.reload();
   }
   await browser.close();
 };
