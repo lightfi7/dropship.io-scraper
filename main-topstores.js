@@ -62,6 +62,7 @@ var storeSchema = mongoose.Schema({
 const Store = mongoose.model("topstores", storeSchema);
 
 var productSchema = mongoose.Schema({
+  storeId: { type: String, index: true },
   store: {},
   title: String,
   handle: String,
@@ -291,7 +292,9 @@ const main = async () => {
               encrypted: token.encode(JSON.stringify(params)),
             }
           );
-          await StoreProduct.insertMany(response.results);
+          await StoreProduct.insertMany(
+            response.results.map((r) => ({ ...r, storeId: r.store?.id }))
+          );
         } catch (err) {}
         await new Promise((resolve) => {
           setTimeout(() => {
