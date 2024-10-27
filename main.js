@@ -14,7 +14,7 @@ const mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 
 mongoose
-  .connect("mongodb://144.91.126.113:27017", {
+  .connect("mongodb://142.91.126.113:27017", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     dbName: "onlyads",
